@@ -5,13 +5,13 @@ Implemented by Xilei Zhao, Civil and Coastal Engineering, University of Florida.
 R version 3.6.1
 
 # Required Libraries
-	randomForest
-	caret
-	pdp
+* randomForest
+* caret
+* pdp
 
 # File specifications
-Model_Comparison.R is the R code for comparing the predictive capability of logistic regression model and random forest model
-Model_Interpretation.R is the R code for interpreting random forest model using variable importance and partial dependence plots
+* Model_Comparison.R is the R code for comparing the predictive capability of logistic regression model and random forest model
+* Model_Interpretation.R is the R code for interpreting random forest model using variable importance and partial dependence plots
 
 # Paper
 To be updated soon
