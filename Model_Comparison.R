@@ -20,7 +20,7 @@ holdout.data$Response = as.factor(holdout.data$Response)
 
 # Conduct 10-Fold Cross Validation
 numHoldouts = 10
-vecMSE = matrix(data=NA,ncol=10,nrow=numHoldouts)
+vecMSE = matrix(data=NA,ncol=6,nrow=numHoldouts)
 
 set.seed(1)
 # Randomly shuffle the data
