@@ -19,20 +19,20 @@ holdout.data$AlarmType = as.factor(holdout.data$AlarmType)
 holdout.data$Response = as.factor(holdout.data$Response)
 
 # Conduct 10-Fold Cross Validation
-numHoldouts = 10
-vecMSE = matrix(data=NA,ncol=6,nrow=numHoldouts)
+no.fold = 10
+vecMSE = matrix(data=NA,ncol=6,nrow=no.fold)
 
 set.seed(1)
 # Randomly shuffle the data
-mydata<-mydata[sample(nrow(mydata)),]
+mydata = mydata[sample(nrow(mydata)),]
 # Create 10 equally size folds
-folds <- cut(seq(1,nrow(mydata)),breaks=10,labels=FALSE)
+folds = cut(seq(1,nrow(mydata)),breaks=no.fold,labels=FALSE)
   
-for(i in 1:numHoldouts){
+for(i in 1:no.fold){
 
-    testIndexes <- which(folds==i,arr.ind=TRUE)
-    testData <- mydata[testIndexes, ]
-    trainData <- mydata[-testIndexes, ]
+    test.row = which(folds==i, arr.ind=TRUE)
+    testData = mydata[test.row, ]
+    trainData = mydata[-test.row, ]
     
     #1 Train logistic regression model
     lr0 = glm(Response~., trainData, family = binomial(link = 'logit'))
@@ -40,16 +40,16 @@ for(i in 1:numHoldouts){
     rf0 = randomForest(Response~., trainData, ntree = 400, mtry = 7)
     
     # Predict for logistic regression model
-    yhat1=predict(lr0,newdata=testData,type='response')
-    mydata.test1=testData[,"Response"]
+    yhat1 = predict(lr0,newdata=testData,type='response')
+    mydata.test1 = testData[,"Response"]
     vecMSE[i,1] = sum(round(yhat1)==mydata.test1)/length(mydata.test1) # Accuracy
     tab = table(round(yhat1), testData$Response) # Confusion matrix
     vecMSE[i,2] = tab[2,2]/sum(tab[2,])  # Precision
     vecMSE[i,3] = tab[2,2]/sum(tab[,2])  # Recall
     
     # Predict for RF model
-    yhat1=predict(rf0,newdata=testData,type='class')
-    mydata.test1=testData[,"Response"]
+    yhat1 = predict(rf0,newdata=testData,type='class')
+    mydata.test1 = testData[,"Response"]
     vecMSE[i,4] = sum(yhat1==mydata.test1)/length(mydata.test1) # Accuracy
     tab = table(yhat1, testData$Response) # Confusion matrix
     vecMSE[i,5] = tab[2,2]/sum(tab[2,])  # Precision
