@@ -13,6 +13,10 @@ library(pdp)
 # Read training data
 mydata = read.csv("evacuation_data_training.csv") # training set
 
+# Data Processing
+mydata$AlarmType = as.factor(mydata$AlarmType)
+mydata$Response = as.factor(mydata$Response)
+
 # Train final random forest model
 set.seed(1)
 rf_final = randomForest(Response~., mydata, ntree = 400, mtry = 7, importance = TRUE)
