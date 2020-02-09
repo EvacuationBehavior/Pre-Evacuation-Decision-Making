@@ -1,0 +1,6 @@
+Response,Time,GroupSize,VisDMClose_NS,Row,Seat,AlarmType,VisDM_RS,VisDMClose_RS,DMPerGroup_RS
+0,15,3,2,5,10,0,26,3,0
+0,19,4,5,9,2,1,21,0,0
+0,37,3,4,6,9,0,1,1,1
+1,5,2,5,2,7,1,7,4,0
+0,25,3,1,7,12,1,60,4,1
