@@ -9,7 +9,7 @@ R version 3.6.1
 * caret
 * pdp
 
-# File specifications
+# File Specifications
 * Model_Comparison.R: R code for comparing the predictive capability of logistic regression model and random forest model
 * Model_Interpretation.R: R code for interpreting random forest model using variable importance and partial dependence plots
 
