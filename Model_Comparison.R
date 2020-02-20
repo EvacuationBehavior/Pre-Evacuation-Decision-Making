@@ -86,9 +86,9 @@ sd(2 * (vecMSE[,5]*vecMSE[,6])/(vecMSE[,5]+vecMSE[,6])) # F1 Score
 
 # Model Comparison Results for Testing Set
 # Train final models
-set.seed(123)
+set.seed(1)
 lr1 = glm(Response~., mydata, family = binomial(link = 'logit'))
-rf1 = randomForest(Response~., mydata, ntree = 400, mtry = 7)
+rf1 = randomForest(Response~., mydata, ntree = 400, mtry = 7, importance = TRUE)
 
 # Logistic regression
 yhat1=predict(lr1,newdata=holdout.data,type='response')
