@@ -14,7 +14,7 @@ R version 3.6.1
 * Model_Interpretation.R: R code for interpreting random forest model using variable importance and partial dependence plots
 
 # Paper
-To be updated soon
+https://doi.org/10.1016/j.autcon.2020.103140
 
 # Data
 The training and testing datasets (i.e., evacuation_data_training.csv and evacuation_data_testing.csv) have the same data structure as detailed below:
