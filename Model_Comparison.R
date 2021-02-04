@@ -30,7 +30,7 @@ folds = cut(seq(1,nrow(mydata)),breaks=no.fold,labels=FALSE)
   
 for(i in 1:no.fold){
 
-    test.row = which(folds==i, arr.ind=TRUE)
+    test.row = which(folds==i)
     testData = mydata[test.row, ]
     trainData = mydata[-test.row, ]
     
