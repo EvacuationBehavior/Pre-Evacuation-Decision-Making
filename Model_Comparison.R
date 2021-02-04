@@ -23,9 +23,9 @@ no.fold = 10
 vecMSE = matrix(data=NA,ncol=6,nrow=no.fold)
 
 set.seed(1)
-# Randomly shuffle the data
+# Shuffle the data
 mydata = mydata[sample(nrow(mydata)),]
-# Create 10 equally size folds
+# Generate 10 folds
 folds = cut(seq(1,nrow(mydata)),breaks=no.fold,labels=FALSE)
   
 for(i in 1:no.fold){
